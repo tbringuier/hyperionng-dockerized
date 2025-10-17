@@ -1,0 +1,19 @@
+services:
+  hyperion:
+    image: ghcr.io/michelbaie/hyperionng-dockerized:latest
+    container_name: hyperion
+    restart: unless-stopped
+    network_mode: host
+    # ports:
+    #   - "8090:8090"
+    #   - "8092:8092"
+    #   - "19444:19444"
+    #   - "19445:19445"
+    environment:
+      - TZ=Europe/Paris
+    volumes:
+      - hyperion_config:/config
+    # devices:
+    #   - /dev/video0:/dev/video0
+volumes:
+  hyperion_config:
